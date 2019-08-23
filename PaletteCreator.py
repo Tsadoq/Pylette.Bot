@@ -1,6 +1,6 @@
 import sys
 
-def image_creator(fileaddr):
+def image_creator(scene):
     try:
         import colorgram
         from PIL import Image, ImageDraw
@@ -11,8 +11,6 @@ def image_creator(fileaddr):
                         and
                     pip install cologram.py""")
     width=750
-    print('Opening image')
-    scene = Image.open(fileaddr,'r')
     print('Resizing image')
     scene = scene.resize((width,int(scene.size[1]*width/scene.size[0])))
     print('Extracting palette')
@@ -31,5 +29,5 @@ def image_creator(fileaddr):
         x_end=x_end+110+3
     background.paste(scene, (25, 25), mask=None)
     print('Finalizing and saving image')
-    background.save(fileaddr+'_palette.jpg')
+    return background
     print('Done!')
