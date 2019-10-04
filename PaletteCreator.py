@@ -10,7 +10,7 @@ def image_creator(scene):
                     pip install Pillow
                         and
                     pip install cologram.py""")
-    width=750
+    width=776
     print('Resizing image')
     scene = scene.resize((width,int(scene.size[1]*width/scene.size[0])))
     print('Extracting palette')
@@ -27,7 +27,7 @@ def image_creator(scene):
         rectangle.rectangle([(x_start, y[0]), (x_end, y[1])], fill=(col.r, col.g, col.b), outline=None, width=0)
         x_start=x_start+110+3
         x_end=x_end+110+3
-    background.paste(scene, (25, 25), mask=None)
+    background.paste(scene, (12, 25), mask=None)
     print('Finalizing and saving image')
     return background
     print('Done!')
